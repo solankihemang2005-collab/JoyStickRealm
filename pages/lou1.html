@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Last of Us Part 1</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+
+    <!-- VIDEO -->
+    <video autoplay muted loop playsinline class="bg-video">
+       <source src="../video/lou.mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="overlay">
+        <h1>Last of Us Part 1</h1>
+        <p>Joel and Ellie begin their journey</p>
+
+        <div class="hero-buttons">
+            <button class="primary">▶ Play</button>
+            <button class="secondary" onclick="scrollToTrailer()">🎬 Trailer</button>
+            <button class="secondary">❤️ Wishlist</button>
+        </div>
+    </div>
+
+</header>
+
+<!-- CONTENT -->
+<section class="content">
+
+    <div class="image-container">
+        <img src="../images/lou.jpg">>
+    </div>
+
+    <div class="info-grid">
+        <div class="card">🎮 Action Adventure</div>
+        <div class="card">📅 2013 Release</div>
+        <div class="card">🕹 PS4 / PS5 / PC</div>
+        <div class="card">🏆 GOTY Winner</div>
+    </div>
+
+    <div class="description">
+        <h2>Story</h2>
+        <p>
+            In a post-apocalyptic world, Joel must escort Ellie across the United States.
+            What begins as a simple mission becomes a brutal journey of survival, trust, and sacrifice.
+        </p>
+    </div>
+
+    <div class="trailer-section" id="trailer">
+        <h2>Official Trailer</h2>
+        <iframe 
+            src="https://www.youtube.com/embed/W01L70IGBgE"
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="rating">
+        <h2>Rate This Game</h2>
+        <span onclick="rate(1)">⭐</span>
+        <span onclick="rate(2)">⭐</span>
+        <span onclick="rate(3)">⭐</span>
+        <span onclick="rate(4)">⭐</span>
+        <span onclick="rate(5)">⭐</span>
+        <p id="ratingText"></p>
+    </div>
+
+    <button onclick="goBack()">⬅ Back</button>
+
+</section>
+
+<script>
+function goBack() {
+    window.location.href = "../index.html";
+}
+
+function rate(stars) {
+    document.getElementById("ratingText").innerText = "Rated: " + stars + " ⭐";
+}
+
+function scrollToTrailer() {
+    document.getElementById("trailer").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>

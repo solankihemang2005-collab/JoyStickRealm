@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<header class="hero">
+
+    <!-- VIDEO BACKGROUND -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="video/home.mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="overlay">
+        <h1>GAME HUB</h1>
+        <p>Select Your Game</p>
+
+        <div class="hero-buttons">
+            <button onclick="goToGames()" class="primary">🎮 Browse Games</button>
+        </div>
+
+        <!-- SEARCH BAR -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search Games..." onkeyup="filterGames(event)">
+        </div>
+    </div>
+
+</header>
+
+<!-- GAMES -->
+<section class="content" id="games">
+
+    <h2 style="text-align:center;">Popular Games</h2>
+
+    <div class="game-row" id="gameRow">
+
+        <a href="pages/lou1.html" class="game-card">
+            <img src="images/lou.jpg">
+            <div class="game-title">Last of Us Part 1</div>
+        </a>
+
+        <a href="pages/lou2.html" class="game-card">
+            <img src="images/lou2.jpg">
+            <div class="game-title">Last of Us Part 2</div>
+        </a>
+
+        <a href="pages/gowr.html" class="game-card">
+            <img src="images/gowr.jpg">
+            <div class="game-title">God of War Ragnarök</div>
+        </a>
+
+    </div>
+
+</section>
+
+<script>
+function goToGames() {
+    document.getElementById("games").scrollIntoView({ behavior: "smooth" });
+}
+
+// FILTER & REDIRECT ON ENTER
+function filterGames(event) {
+    let input = document.getElementById('searchInput').value.toLowerCase();
+    let gameCards = document.getElementById('gameRow').getElementsByClassName('game-card');
+
+    // Redirect if Enter pressed
+    if (event.key === "Enter") {
+        for (let i = 0; i < gameCards.length; i++) {
+            let title = gameCards[i].getElementsByClassName('game-title')[0].innerText.toLowerCase();
+            if (title === input || title.replace(/\s+/g,'').includes(input.replace(/\s+/g,''))) {
+                window.location.href = gameCards[i].getAttribute('href');
+                return;
+            }
+        }
+        alert("No game found with that name!");
+        return;
+    }
+
+    // Filter cards while typing
+    for (let i = 0; i < gameCards.length; i++) {
+        let title = gameCards[i].getElementsByClassName('game-title')[0].innerText.toLowerCase();
+        if (title.includes(input) && input !== "") {
+            gameCards[i].style.display = "block";
+        } else {
+            gameCards[i].style.display = "none";
+        }
+    }
+
+    // Show all if input is empty
+    if (input === "") {
+        for (let i = 0; i < gameCards.length; i++) {
+            gameCards[i].style.display = "block";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

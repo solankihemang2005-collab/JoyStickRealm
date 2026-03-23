@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>God of War</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero gow-hero">
+
+    <!-- VIDEO BACKGROUND -->
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="../video/gow.mp4">
+    </video>
+
+    <!-- OVERLAY -->
+    <div class="overlay">
+        <h1>God of War</h1>
+        <p>Kratos begins a new journey with his son Atreus</p>
+
+        <div class="hero-buttons">
+            <button class="primary">▶ Play</button>
+            <button class="secondary" onclick="scrollToTrailer()">🎬 Trailer</button>
+            <button class="secondary">❤️ Wishlist</button>
+        </div>
+    </div>
+
+</header>
+
+<!-- CONTENT -->
+<section class="content">
+
+    <!-- IMAGE -->
+    <div class="image-container">
+        <img src="../images/gow.jpg">
+    </div>
+
+    <!-- INFO CARDS -->
+    <div class="info-grid">
+        <div class="card">🎮 Action Adventure</div>
+        <div class="card">📅 2018 Release</div>
+        <div class="card">🕹 PS4</div>
+        <div class="card">🏆 GOTY Winner</div>
+    </div>
+
+    <!-- STORY -->
+    <div class="description">
+        <h2>Story</h2>
+        <p>
+            Kratos lives in the Norse realm with his son Atreus after leaving Greece.
+            Together they must journey through dangerous lands, battle gods and monsters,
+            and learn to trust one another as father and son.
+        </p>
+    </div>
+
+    <!-- TRAILER -->
+    <div class="trailer-section" id="trailer">
+        <h2>Official Trailer</h2>
+        <iframe 
+            src="https://www.youtube.com/embed/K0u_kAWLJOA" 
+            frameborder="0" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
+    <!-- RATING -->
+    <div class="rating">
+        <h2>Rate This Game</h2>
+        <span onclick="rate(1)">⭐</span>
+        <span onclick="rate(2)">⭐</span>
+        <span onclick="rate(3)">⭐</span>
+        <span onclick="rate(4)">⭐</span>
+        <span onclick="rate(5)">⭐</span>
+        <p id="ratingText"></p>
+    </div>
+
+    <button onclick="goBack()">⬅ Back</button>
+
+</section>
+
+<script>
+function goBack() {
+    window.location.href = "../index.html";
+}
+
+function rate(stars) {
+    document.getElementById("ratingText").innerText = "Rated: " + stars + " ⭐";
+}
+
+function scrollToTrailer() {
+    document.getElementById("trailer").scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
